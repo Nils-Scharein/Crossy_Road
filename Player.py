@@ -20,3 +20,13 @@ class Player(Turtle):
 
     def move_down(self):
         self.bk(20)
+
+    def colision(self, cars):
+        for car in cars:
+            if car.distance(self.pos()) < 20:
+                return True
+
+    def win(self):
+        if self.ycor() > 240:
+            print("You Win")
+            return True

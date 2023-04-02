@@ -6,36 +6,29 @@ DOWN = 270
 LEFT = 180
 RIGHT = 0
 
-colors = ["red", "blue", "yellow", "green", "purple"]
-speed = [5, 10]
-
+colors = ["red"]
+speed = [3, 4, 5, 6, 7, 8, 9, 10]
 
 class Car(Turtle):
 
-    def __init__(self):
+    def __init__(self, HEIGHT, WIDTH):
         super().__init__()
+        self.WIDTH = WIDTH
+        self.HIGHT = HEIGHT
+        #setup Turtle
         self.penup()
         self.color(random.choice(colors))
         self.shape("square")
-        self.speed("slowest")
-        self.shapesize(stretch_wid=1, stretch_len=2)
-        self.setheading(LEFT)
         self.speed = random.choice(speed)
+        self.shapesize(stretch_wid=1, stretch_len=2)
         self.x = 0
         self.y = 0
+        self.setpos(self.x, self.y)
 
-    def set_x(self):
-        r = random.randint(0, 1)
-        if r == 0:
-            self.setheading(LEFT)
-            self.x = 0
-
-        if r == 1:
-            self.setheading(RIGHT)
-            self.y = 0
 
     def set_y(self):
         pass
 
     def move(self):
-        self.fd(1)
+        self.fd(self.speed)
+
